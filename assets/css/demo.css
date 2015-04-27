@@ -26,7 +26,7 @@ body {
 /* LOGO STUFF*/
 .ip-logo {
 	top: 0;
-	opacity: 1;
+	opacity: 0;
 	position: absolute;
 	-webkit-transition: opacity 0.3s ease-in-out;
 	-moz-transition: opacity 0.3s ease-in-out;
