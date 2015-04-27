@@ -10,7 +10,13 @@ $(function () {
 	//Flickity
 	// init Flickity
 	$('.gallery-main').flickity({
-		setGallerySize: false
+		setGallerySize: false,
+		prevNextButtons: false,
+pageDots: false
 	});
+
+	$('.items-wrap').children('a').on('click', function(){
+		console.log("click");
+	})
 
 });

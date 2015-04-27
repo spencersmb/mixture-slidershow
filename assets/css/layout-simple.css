@@ -230,3 +230,15 @@
 		font-size: 2em;
 	}
 }
+
+.trigger-right{
+
+}
+
+.trigger-right{
+	position: absolute;
+	overflow: hidden;
+	margin: 0 0 0 20px;
+	bottom:20px;
+	right: 40px;
+}

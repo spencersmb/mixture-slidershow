@@ -29,7 +29,6 @@
 
 	<div id="ip-container" class="ip-container">
 	
-	{% include "initial-header" %}
 
 	{% block header %}{% endblock %}
 
@@ -49,7 +48,7 @@
 {{ "bower_components/underscore/underscore.js" | asset_url | script_tag }}
 
 <!-- preloader -->
-{{ "pathLoader.js" | asset_url | script_tag }}
+<!-- {{ "pathLoader.js" | asset_url | script_tag }} -->
 
 <!-- Flickity Slider -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.min.js"></script>
@@ -64,7 +63,7 @@
 <!-- {{ "home.js" | asset_url | script_tag }} -->
 
 <!-- main js -->
-{{ "main.js" | asset_url | script_tag }}
+<!-- {{ "main.js" | asset_url | script_tag }} -->
 
 <!-- scripts -->
 {{ "scripts.js" | asset_url | script_tag }}
