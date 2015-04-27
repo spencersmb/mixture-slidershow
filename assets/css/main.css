@@ -93,9 +93,10 @@ Version: 1.0.0
   bottom: 0;
 }
 
-body {
-  font: 1.5em;
-  color: blue;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+.container--open .intro {
+  -webkit-transform: translate3d(0, -100%, 0) translate3d(0, 120px, 0);
+  -moz-transform: translate3d(0, -100%, 0) translate3d(0, 120px, 0);
+  -ms-transform: translate3d(0, -100%, 0) translate3d(0, 120px, 0);
+  -o-transform: translate3d(0, -100%, 0) translate3d(0, 120px, 0);
+  transform: translate3d(0, -100%, 0) translate3d(0, 120px, 0);
 }

@@ -1,0 +1,6 @@
+.container--open{
+	.intro{
+			@include transform( translate3d(0, -100%, 0) translate3d(0, 120px, 0) )
+	}
+
+}

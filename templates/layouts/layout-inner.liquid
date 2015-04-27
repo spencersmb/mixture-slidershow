@@ -9,6 +9,8 @@
 
 		<!-- CSS + Favicon -->
 		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 		{{ "normalize.css" | asset_url | stylesheet_tag }}
     
     <!-- Preloader -->
@@ -21,6 +23,9 @@
 	
 		<!-- Flickity -->
 		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.min.css">
+
+		<!-- Custom styles -->
+		{{ "main.css" | asset_url | stylesheet_tag }}
 
 		{{ "modernizr.custom.js" | asset_url | script_tag }}
 
@@ -42,6 +47,7 @@
 
 <!-- jquery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 <!-- Library -->
 {{ "classie.js" | asset_url | script_tag }}
