@@ -9,6 +9,8 @@ $(function () {
 
 	//Flickity
 	// init Flickity
-	$('.gallery-main').flickity();
+	$('.gallery-main').flickity({
+		setGallerySize: false
+	});
 
 });
