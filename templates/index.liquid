@@ -1,0 +1,97 @@
+			{% block content %}
+			<!-- content -->
+			<div id="container" class="container">
+				<header class="intro">
+					<img class="intro__image" src="{{'header03.jpg' | asset_url}}" alt="Iceland galcier"/>
+					<div class="intro__content">
+						<h1 class="intro__title">Essential Feelings</h1>
+						<div class="intro__subtitle">
+							<div class="codrops-links">
+								<a class="codrops-icon codrops-icon--prev" href="http://tympanus.net/Development/ElasticSVGElements/" title="Previous Demo"><span>Previous Demo</span></a>
+								<a class="codrops-icon codrops-icon--drop" href="http://tympanus.net/codrops/?p=21934" title="Back to the a"><span>Back to the Codrops a</span></a>
+							</div>
+							<div class="intro__description">
+								A layout with a sliding header and an image grid. Photo courtesy of <a href="http://instagram.com/danrubin/">Dan Rubin</a>.
+								<div class="demos">
+									<a class="demos__item demos__item--current" href="index.html">Simple</a>
+									<a class="demos__item" href="layout-multi.html">Multi</a>
+								</div>
+							</div>
+							<button class="trigger">
+								<svg width="100%" height="100%" viewBox="0 0 60 60" preserveAspectRatio="none">
+									<g class="icon icon--grid">
+										<rect x="32.5" y="5.5" width="22" height="22"/>
+										<rect x="4.5" y="5.5" width="22" height="22"/>
+										<rect x="32.5" y="33.5" width="22" height="22"/>
+										<rect x="4.5" y="33.5" width="22" height="22"/>
+									</g>
+									<g class="icon icon--cross">
+										<line x1="4.5" y1="55.5" x2="54.953" y2="5.046"/>
+										<line x1="54.953" y1="55.5" x2="4.5" y2="5.047"/>
+									</g>
+								</svg>
+								<span>View content</span>
+							</button>
+						</div>
+					</div>
+					<!-- intro__content -->
+				</header>
+
+				<!-- intro -->
+				<section class="items-wrap">
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item01.jpg' | asset_url}}" alt="item01"/>
+						<h2 class="item__title">Magnificence</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item02.jpg' | asset_url}}" alt="item02"/>
+						<h2 class="item__title">Electrifying</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item03.jpg' | asset_url}}" alt="item03"/>
+						<h2 class="item__title">Dynamic</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item04.jpg' | asset_url}}" alt="item04"/>
+						<h2 class="item__title">Crucial</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item05.jpg' | asset_url}}" alt="item05"/>
+						<h2 class="item__title">Awe-inspiring</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item06.jpg' | asset_url}}" alt="item06"/>
+						<h2 class="item__title">Serene</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item07.jpg' | asset_url}}" alt="item07"/>
+						<h2 class="item__title">Vulnerable</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item08.jpg' | asset_url}}" alt="item08"/>
+						<h2 class="item__title">Bountiful</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item09.jpg' | asset_url}}" alt="item09"/>
+						<h2 class="item__title">Endangered</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item10.jpg' | asset_url}}" alt="item10"/>
+						<h2 class="item__title">Beautiful</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item11.jpg' | asset_url}}" alt="item11"/>
+						<h2 class="item__title">Inspiring</h2>
+					</a>
+					<a href="#" class="item">
+						<img class="item__image" src="{{'item12.jpg' | asset_url}}" alt="item12"/>
+						<h2 class="item__title">Refreshing</h2>
+					</a>
+				</section>
+				<section class="related">
+					<p>If you enjoyed this demo you might also like:</p>
+					<a href="http://tympanus.net/Development/DraggableDualViewSlideshow/">Draggable Dual-View Slideshow</a><br />
+					<a href="http://tympanus.net/Tutorials/PagePreloadingEffect/">Page Preloading Effect</a>
+				</section>
+			</div><!-- container -->
+			{% endblock %}

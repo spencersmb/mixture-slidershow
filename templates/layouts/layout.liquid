@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<!--[if lt IE 9 ]> <html lang="en-GB" class="no-js lt-ie9"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en-GB" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    
+    <meta name="viewport" content="width=device-width">
+		<title>{% block title %}Avalon App | Technical Demo{% endblock %}</title>
+
+		<!-- CSS + Favicon -->
+		<link rel="shortcut icon" href="../favicon.ico">
+		{{ "normalize.css" | asset_url | stylesheet_tag }}
+    
+    <!-- Preloader -->
+    {{ "preloader.css" | asset_url | stylesheet_tag }}
+    {% block styles %}{% endblock %}	
+
+    <!-- Sliding Header -->
+		{{ "demo.css" | asset_url | stylesheet_tag }}
+		{{ "layout-simple.css" | asset_url | stylesheet_tag }}
+	
+		<!-- Flickity -->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.min.css">
+
+		{{ "modernizr.custom.js" | asset_url | script_tag }}
+
+</head>
+<body class="demo-1">
+
+	<div id="ip-container" class="ip-container">
+	
+	{% include "initial-header" %}
+
+	{% block header %}{% endblock %}
+
+	
+	{% block content %}{% endblock %}
+	</div>
+
+	<!-- <div ui-view></div> -->
+
+{% block footer %}{% endblock %}	
+
+<!-- jquery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<!-- Library -->
+{{ "classie.js" | asset_url | script_tag }}
+{{ "bower_components/underscore/underscore.js" | asset_url | script_tag }}
+
+<!-- preloader -->
+{{ "pathLoader.js" | asset_url | script_tag }}
+
+<!-- Flickity Slider -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.min.js"></script>
+
+
+<!-- SETUP FOR ANGULAR -->
+{{ "bower_components/angular/angular.js" | asset_url | script_tag }}
+
+{{ "bower_components/angular-ui-router/release/angular-ui-router.min.js" | asset_url | script_tag }}
+
+<!-- {{ "app.js" | asset_url | script_tag }} -->
+<!-- {{ "home.js" | asset_url | script_tag }} -->
+
+<!-- main js -->
+{{ "main.js" | asset_url | script_tag }}
+
+<!-- scripts -->
+{{ "scripts.js" | asset_url | script_tag }}
+
+<script>
+	(function() {
+		var container = document.getElementById( 'container' ),
+			trigger = container.querySelector( 'button.trigger' );
+
+		function toggleContent() {
+			if( classie.has( container, 'container--open' ) ) {
+				classie.remove( container, 'container--open' );
+				classie.remove( trigger, 'trigger--active' );
+				window.addEventListener( 'scroll', noscroll );
+			}
+			else {
+				classie.add( container, 'container--open' );
+				classie.add( trigger, 'trigger--active' );
+				window.removeEventListener( 'scroll', noscroll );
+			}
+		}
+
+		function noscroll() {
+			window.scrollTo( 0, 0 );
+		}
+
+		// reset scrolling position
+		document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+		// disable scrolling
+		window.addEventListener( 'scroll', noscroll );
+
+		trigger.addEventListener( 'click', toggleContent );
+
+		// For Demo purposes only (prevent jump on click)
+		[].slice.call( document.querySelectorAll('.items-wrap a') ).forEach( function(el) { el.onclick = function() { return false; } } );
+	})();
+</script>
+
+<!-- Custom Scripts for Templates -->
+{% block scripts %}
+{% endblock %}
+
+</body>
+</html>

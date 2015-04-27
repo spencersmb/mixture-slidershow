@@ -1,0 +1,27 @@
+{
+  "name": "mixture_angular",
+  "version": "0.0.0",
+  "authors": [
+    "spencersmb <spencer.bigum@gmail.com>"
+  ],
+  "description": "mixture boilerplater for angular",
+  "moduleType": [
+    "es6",
+    "globals",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.14"
+  },
+  "devDependencies": {
+    "underscore": "~1.8.3"
+  }
+}
