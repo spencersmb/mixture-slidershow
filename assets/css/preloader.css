@@ -44,9 +44,13 @@
 }
 
 .ip-header .ip-logo svg {
+	margin-top: 20%;
+	
+
+	/*avalon*/
+/*	width: 25%;
 	min-width: 320px;
-	max-width: 480px;
-	width: 25%;
+	max-width: 480px;*/
 }
 
 .ip-header .ip-logo svg path {
