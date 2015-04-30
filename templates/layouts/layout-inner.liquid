@@ -15,7 +15,6 @@
     
     <!-- Preloader -->
     {{ "preloader.css" | asset_url | stylesheet_tag }}
-    {% block styles %}{% endblock %}	
 
     <!-- Sliding Header -->
 		{{ "demo.css" | asset_url | stylesheet_tag }}
@@ -28,12 +27,22 @@
 		{{ "main.css" | asset_url | stylesheet_tag }}
 
 		{{ "modernizr.custom.js" | asset_url | script_tag }}
+		
+		{% block styles %}
+		<style>
+			.loaded .ip-logo{
+					opacity: 0;
+			}
+		</style>
+		
+		{% endblock %}	
+		
 
 </head>
 <body class="demo-1">
 
 	<div id="ip-container" class="ip-container">
-	
+	{% include "initial-header" %}
 
 	{% block header %}{% endblock %}
 
@@ -54,7 +63,7 @@
 {{ "bower_components/underscore/underscore.js" | asset_url | script_tag }}
 
 <!-- preloader -->
-<!-- {{ "pathLoader.js" | asset_url | script_tag }} -->
+{{ "pathLoader.js" | asset_url | script_tag }}
 
 <!-- Flickity Slider -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/flickity/1.0.0/flickity.pkgd.min.js"></script>
@@ -73,14 +82,17 @@
 <!-- {{ "home.js" | asset_url | script_tag }} -->
 
 <!-- main js -->
-<!-- {{ "main.js" | asset_url | script_tag }} -->
+{{ "main.js" | asset_url | script_tag }}
 
 <!-- scripts -->
 {{ "scripts.js" | asset_url | script_tag }}
 
 
 <script>
-	(function() {
+
+$(function () {
+
+	//slide container up and down
 		var container = document.getElementById( 'container' ),
 			trigger = container.querySelector( 'button.trigger' );
 
@@ -111,7 +123,96 @@
 
 		// For Demo purposes only (prevent jump on click)
 		// [].slice.call( document.querySelectorAll('.items-wrap a') ).forEach( function(el) { el.onclick = function() { return false; } } );
-	})();
+
+		//Flickity
+		// init Flickity
+		var gallery = $('.gallery-main').flickity({
+			setGallerySize: false,
+			prevNextButtons: false,
+			pageDots: false
+		});
+
+		function checkURL(){
+			// get url of window
+			var currentURL = window.location.href;
+
+			//determin if the URL has slide in it
+			var name = currentURL.search("slide");
+			// var name = currentURL.match(/slide/g); - works too.
+			
+
+			if( name > 0 ){
+
+				//convert url to object
+				var hash = urlObject({'url': currentURL }).hash;
+				
+				// strip it of index and turn it to a number
+				var index = parseInt(hash.replace("index=slide",""));
+
+				// make gallery go to that number
+				gallery.flickity( 'select', index-1 );
+
+			}else{
+
+				// console.log("false");
+				// else go to first slide
+				gallery.flickity( 'select', 0 );
+			}
+			
+		}
+
+		checkURL();
+
+		//get data for flickity plugin
+		var flkty;
+		var href;
+		var object;
+		var option;
+
+		//logs what slide the user is on by passing info to URL
+		gallery.on('cellSelect', function(){
+			// console.log( flkty.selectedElement.id );
+
+			flkty = gallery.data('flickity');
+
+			// get href attr, remove leading #
+			href = flkty.selectedElement.id;
+
+			object = "index="+href;
+
+			option = $.deparam( object, true);
+			console.log(option);
+			// var href = $(this).attr('href').replace( /^#/, '' ),
+
+			    // convert href into object
+			    // i.e. 'filter=.inner-transition' -> { filter: '.inner-transition' }
+			// set hash, triggers hashchange on window
+			$.bbq.pushState( option );
+			return false;
+
+		});
+
+
+	$('.item').on( 'click', 'a', function() {
+
+		//get the value from the data attrib
+	  var index = $(this).find('div').data("slide");
+
+	  //go to that slide
+	  gallery.flickity( 'select', index );
+
+	  $.bbq.pushState( option );
+
+	  //close the nav
+	  classie.remove( container, 'container--open' );
+	  classie.remove( trigger, 'trigger--active' );
+	  return false;
+	});
+
+
+});
+
+	
 </script>
 
 <!-- Custom Scripts for Templates -->

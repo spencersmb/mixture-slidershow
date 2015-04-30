@@ -1,91 +1,24 @@
-$(function () {
-	$('.trigger').click(function(){
-		console.log("clicked trigger");
 
-		var logo = document.getElementsByClassName("ip-logo");
+$(function () {
+
+	var a=document.getElementsByTagName("a"); for(var i=0;i<a.length;i++) { a[i].onclick=function() { window.location=this.getAttribute("href"); return false } }
+	var logo = document.getElementsByClassName("ip-logo");
+	$('.trigger').click(function(){
+		// console.log("clicked trigger");
+
+		
 		$(logo).toggleClass("logo--hidden");
 	});
 
 
-	//Flickity
-	// init Flickity
-	var gallery = $('.gallery-main').flickity({
-		setGallerySize: false,
-		prevNextButtons: false,
-		pageDots: false
-	});
+	
 
-	function checkURL(){
-		var currentURL = window.location.href;
-		// var text = currentURL.split("");
-		// console.log(text);
-
-		var name = currentURL.search("slide");
-		// var name = currentURL.match(/slide/g); - works too.
-		
-		if( name > 0 ){
-			var hash = urlObject({'url': currentURL }).hash;
-			
-			
-			var index = parseInt(hash.replace("index=slide",""));
-			// console.log(index);
-
-			gallery.flickity( 'select', index );
-
-		}else{
-			console.log("false");
-			gallery.flickity( 'select', 0 );
-		}
-		
-	}
-
-	checkURL();
-
-	//get data for flickity plugin
-	var flkty = gallery.data('flickity');
-
-	//logs what slide the user is on
-	gallery.on('cellSelect', function(){
-		console.log( flkty.selectedElement.id );
-		// get href attr, remove leading #
-		var href = flkty.selectedElement.id;
-
-		var object = "index="+href;
-
-		var option = $.deparam( object, true);
-		// console.log(option);
-		// console.log('serialized ' + $.deparam( href, true ));
-		// var href = $(this).attr('href').replace( /^#/, '' ),
-		    // convert href into object
-		    // i.e. 'filter=.inner-transition' -> { filter: '.inner-transition' }
-		    // option = $.deparam( href, true );
-		// set hash, triggers hashchange on window
-		$.bbq.pushState( option );
-		// return false;
-
-		// checkURL();
-	});
-
-	// var flkty = gallery.data('flickity');
-
-	// console.log(flkty.selectedIndex, flkty.selectedElement);
-
-	$('.items-wrap').children('a').on('click', function(){
-		// console.log("click");
-	})
+	// $('.items-wrap').children('a').on('click', function(){
+	// 	// console.log("click");
+	// })
 
 });
 
-// $('.option-set a').click(function(){
-//   // get href attr, remove leading #
-//   var href = $(this).attr('href').replace( /^#/, '' ),
-//       // convert href into object
-//       // i.e. 'filter=.inner-transition' -> { filter: '.inner-transition' }
-//       option = $.deparam( href, true );
-//   // set hash, triggers hashchange on window
-//   $.bbq.pushState( option );
-//   return false;
-// });
 
 function urlObject(options) {
     "use strict";

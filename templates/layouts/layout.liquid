@@ -75,7 +75,11 @@
 {{ "scripts.js" | asset_url | script_tag }}
 
 <script>
-	(function() {
+
+
+$(function () {
+
+	//slide container up and down
 		var container = document.getElementById( 'container' ),
 			trigger = container.querySelector( 'button.trigger' );
 
@@ -106,7 +110,24 @@
 
 		// For Demo purposes only (prevent jump on click)
 		// [].slice.call( document.querySelectorAll('.items-wrap a') ).forEach( function(el) { el.onclick = function() { return false; } } );
-	})();
+
+
+	$('.item').on( 'click', 'a', function() {
+
+		//get the value from the data attrib
+	  // var index = $(this).find('div').data("slide");
+
+	  //go to that slide
+	  // gallery.flickity( 'select', index );
+
+	  //close the nav
+	  classie.remove( container, 'container--open' );
+	  classie.remove( trigger, 'trigger--active' );
+	});
+
+
+});
+	
 </script>
 
 <!-- Custom Scripts for Templates -->
