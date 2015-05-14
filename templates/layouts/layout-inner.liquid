@@ -50,6 +50,7 @@
 	{% block content %}{% endblock %}
 	</div>
 
+
 	<!-- <div ui-view></div> -->
 
 {% block footer %}{% endblock %}	
@@ -100,6 +101,12 @@ $(function () {
 			if( classie.has( container, 'container--open' ) ) {
 				classie.remove( container, 'container--open' );
 				classie.remove( trigger, 'trigger--active' );
+
+				if($('.opacity-load').hasClass('active')){
+
+					$('.opacity-load').removeClass('active');
+					
+				}
 				window.addEventListener( 'scroll', noscroll );
 			}
 			else {
@@ -150,7 +157,7 @@ $(function () {
 				var index = parseInt(hash.replace("index=slide",""));
 
 				// make gallery go to that number
-				gallery.flickity( 'select', index-1 );
+				gallery.flickity( 'select', index );
 
 			}else{
 
@@ -193,21 +200,33 @@ $(function () {
 		});
 
 
+	//GO TO SLIDE ON CLICK
 	$('.item').on( 'click', 'a', function() {
 
 		//get the value from the data attrib
 	  var index = $(this).find('div').data("slide");
+
+	  //Add loadstate
+	  $('.opacity-load').addClass('active');
 
 	  //go to that slide
 	  gallery.flickity( 'select', index );
 
 	  $.bbq.pushState( option );
 
-	  //close the nav
-	  classie.remove( container, 'container--open' );
-	  classie.remove( trigger, 'trigger--active' );
 	  return false;
 	});
+
+
+gallery.on( 'settle', function() {
+
+   console.log("finish");
+   classie.remove( container, 'container--open' );
+   classie.remove( trigger, 'trigger--active' );
+
+   $('.opacity-load').removeClass('active');
+
+ });
 
 
 });

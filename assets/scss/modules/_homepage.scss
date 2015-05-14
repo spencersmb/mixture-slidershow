@@ -160,6 +160,192 @@ body{
 	}
 
 }
+.opacity-load{
+	position:fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	width:100%;
+	height:100%;
+	bottom:0;
+	z-index: -1;
+	@include transition(all .6s cubic-bezier(0.7, 0, 0.3, 1));
+	@include transform( translate3d(0, 100%, 0));
+
+	h1{
+		position:absolute;
+		color:$white;
+		bottom:100%;
+		width:100%;
+		text-align: center;
+		@include transition(all .8s cubic-bezier(0.7, 0, 0.3, 1) );
+		@include transform(translateY(0));
+	}
+
+	&.active{
+		@include transform( translate3d(0,0, 0) );
+		z-index: 1;
+
+		h1{
+			bottom:33%;
+			@include transform(translateY(-60%));
+		}
+	}
+
+}
+
+.gradient-bottom {
+  width: 100%;
+  position: absolute;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0, transparent 100%);
+  z-index: 0;
+  height: 135px;
+  bottom: 0;
+}
+
+////PRELOADER
+.la-ball-grid-beat {
+    position: relative;
+    margin:0 auto;
+}
+.la-ball-grid-beat > div {
+    position: relative;
+    box-sizing: content-box;
+    color: #fff;
+    background: #fff;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0;
+}
+.la-ball-grid-beat:after {
+    display: table;
+    clear: both;
+    line-height: 0;
+    content: "";
+}
+.la-ball-grid-beat.la-dark > div {
+    color: #444;
+    background: #444;
+    border-color: #444;
+}
+.la-ball-grid-beat {
+    width: 36px;
+    top: 50%;
+}
+.la-ball-grid-beat > div {
+    display: inline-block;
+
+    float: left;
+    float: left;
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    border-radius: 100%;
+    @include animation-name(ball-grid-beat);
+    @include animation-delay(0);
+    @include animation-iteration-count(infinite);
+}
+.la-ball-grid-beat > div:nth-child(1) {
+	  @include animation-duration(1.07s);
+	  @include animation-delay(-.24s);
+}
+.la-ball-grid-beat > div:nth-child(2) {
+		@include animation-duration(.95s);
+		@include animation-delay(-.19s);
+}
+.la-ball-grid-beat > div:nth-child(3) {
+		@include animation-duration(1.14s);
+    @include animation-delay(-.19s);
+}
+.la-ball-grid-beat > div:nth-child(4) {
+		@include animation-duration(1.04s);
+    @include animation-delay(.04s);
+}
+.la-ball-grid-beat > div:nth-child(5) {
+		@include animation-duration(1.52s);
+    @include animation-delay(-.4s);
+}
+.la-ball-grid-beat > div:nth-child(6) {
+		@include animation-duration(1.16s);
+    @include animation-delay(.04s);
+}
+.la-ball-grid-beat > div:nth-child(7) {
+		@include animation-duration(1.23s);
+    @include animation-delay(-.11s);
+}
+.la-ball-grid-beat > div:nth-child(8) {
+		@include animation-duration(1.08s);
+    @include animation-delay(-.52s);
+}
+.la-ball-grid-beat > div:nth-child(9) {
+		@include animation-duration(1.1s);
+    @include animation-delay(-.1s);
+}
+.la-ball-grid-beat.la-sm {
+    width: 18px;
+}
+.la-ball-grid-beat.la-sm > div {
+    width: 4px;
+    height: 4px;
+    margin: 1px;
+}
+.la-ball-grid-beat.la-lg {
+    width: 54px;
+}
+.la-ball-grid-beat.la-lg > div {
+    width: 12px;
+    height: 12px;
+    margin: 3px;
+}
+.la-ball-grid-beat.la-2x {
+    width: 72px;
+}
+.la-ball-grid-beat.la-2x > div {
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+}
+/*
+ * Animation
+ */
+@keyframes ball-grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+// keyframes mixin
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+ 
+// use of keyframes mixin
+@include keyframes(ball-grid-beat) {
+   0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 
 

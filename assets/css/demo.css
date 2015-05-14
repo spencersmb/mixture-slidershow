@@ -141,7 +141,7 @@ a:focus {
 
 @media screen and (max-width: 590px) {
 	.demos__item {
-		margin-bottom: 1.5em;
+		margin-bottom: 1.5em; 
 	}
 }
 
